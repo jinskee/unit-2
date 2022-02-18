@@ -1,0 +1,335 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Bridger Bowl",
+          "Snow_2012/13": 254,
+          "Snow_2013/14": 316,
+          "Snow_2014/15": 166,
+          "Snow_2015/16": 228,
+          "Snow_2016/17": 209,
+          "Snow_2017/18": 271,
+          "Snow_2018/19": 177,
+          "Snow_2019/20": 186,
+          "Snow_2020/21": 192
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -110.898194,
+            45.817678
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Mt. Baker",
+          "Snow_2012/13": 505,
+          "Snow_2013/14": 661,
+          "Snow_2014/15": 128,
+          "Snow_2015/16": 509,
+          "Snow_2016/17": 625,
+          "Snow_2017/18": 728,
+          "Snow_2018/19": 451,
+          "Snow_2019/20": 332,
+          "Snow_2020/21": 790
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -121.6538,
+            48.861663
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Mt. Bachelor ",
+          "Snow_2012/13": 803,
+          "Snow_2013/14": 776,
+          "Snow_2014/15": 177,
+          "Snow_2015/16": 373,
+          "Snow_2016/17": 469,
+          "Snow_2017/18": 223,
+          "Snow_2018/19": 349,
+          "Snow_2019/20": 214,
+          "Snow_2020/21": 265
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -121.67863,
+            44.002426
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Whitefish Mountain Resort ",
+          "Snow_2012/13": 188,
+          "Snow_2013/14": 246,
+          "Snow_2014/15": 154,
+          "Snow_2015/16": 279,
+          "Snow_2016/17": 356,
+          "Snow_2017/18": 366,
+          "Snow_2018/19": 206,
+          "Snow_2019/20": 206,
+          "Snow_2020/21": 159
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -114.35034,
+            48.480595
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Mt. Bohemia",
+          "Snow_2012/13": 119,
+          "Snow_2013/14": 216,
+          "Snow_2014/15": 114,
+          "Snow_2015/16": 113,
+          "Snow_2016/17": 86,
+          "Snow_2017/18": 69,
+          "Snow_2018/19": 148,
+          "Snow_2019/20": 77,
+          "Snow_2020/21": 20
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -88.0211,
+            47.388
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Grand Targhee",
+          "Snow_2012/13": 343,
+          "Snow_2013/14": 439,
+          "Snow_2014/15": 235,
+          "Snow_2015/16": 359,
+          "Snow_2016/17": 407,
+          "Snow_2017/18": 382,
+          "Snow_2018/19": 436,
+          "Snow_2019/20": 368,
+          "Snow_2020/21": 416
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -110.957765,
+            43.788159
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Mad River Glen",
+          "Snow_2012/13": 87,
+          "Snow_2013/14": 104,
+          "Snow_2014/15": 96,
+          "Snow_2015/16": 44,
+          "Snow_2016/17": 144,
+          "Snow_2017/18": 124,
+          "Snow_2018/19": 134,
+          "Snow_2019/20": 74,
+          "Snow_2020/21": 52
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -72.918382,
+            44.202307
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Taos Ski Valley",
+          "Snow_2012/13": 204,
+          "Snow_2013/14": 191,
+          "Snow_2014/15": 179,
+          "Snow_2015/16": 169,
+          "Snow_2016/17": 192,
+          "Snow_2017/18": 78,
+          "Snow_2018/19": 219,
+          "Snow_2019/20": 166,
+          "Snow_2020/21": 165
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -105.434612,
+            36.590121
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Brundage Mountain Resort ",
+          "Snow_2012/13": 173,
+          "Snow_2013/14": 205,
+          "Snow_2014/15": 162,
+          "Snow_2015/16": 281,
+          "Snow_2016/17": 283,
+          "Snow_2017/18": 209,
+          "Snow_2018/19": 308,
+          "Snow_2019/20": 213,
+          "Snow_2020/21": 202
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -116.12818,
+            45.021284
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Mammoth Mountain",
+          "Snow_2012/13": 315,
+          "Snow_2013/14": 192,
+          "Snow_2014/15": 161,
+          "Snow_2015/16": 393,
+          "Snow_2016/17": 608,
+          "Snow_2017/18": 277,
+          "Snow_2018/19": 495,
+          "Snow_2019/20": 153,
+          "Snow_2020/21": 225
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -119.032634,
+            37.630769
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Lost Trail Powder Mountain ",
+          "Snow_2012/13": 159,
+          "Snow_2013/14": 174,
+          "Snow_2014/15": 138,
+          "Snow_2015/16": 182,
+          "Snow_2016/17": 185,
+          "Snow_2017/18": 259,
+          "Snow_2018/19": 173,
+          "Snow_2019/20": 152,
+          "Snow_2020/21": 180
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -113.9521,
+            45.6923
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Arapahoe Basin ",
+          "Snow_2012/13": 281,
+          "Snow_2013/14": 418,
+          "Snow_2014/15": 314,
+          "Snow_2015/16": 290,
+          "Snow_2016/17": 345,
+          "Snow_2017/18": 247,
+          "Snow_2018/19": 329,
+          "Snow_2019/20": 173,
+          "Snow_2020/21": 236
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -105.875606,
+            39.629592
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Whistler ",
+          "Snow_2012/13": 280,
+          "Snow_2013/14": 274,
+          "Snow_2014/15": 219,
+          "Snow_2015/16": 435,
+          "Snow_2016/17": 505,
+          "Snow_2017/18": 316,
+          "Snow_2018/19": 374,
+          "Snow_2019/20": 295,
+          "Snow_2020/21": 281
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.9796,
+            50.10232
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Brighton Resort ",
+          "Snow_2012/13": 306,
+          "Snow_2013/14": 265,
+          "Snow_2014/15": 220,
+          "Snow_2015/16": 386,
+          "Snow_2016/17": 518,
+          "Snow_2017/18": 329,
+          "Snow_2018/19": 588,
+          "Snow_2019/20": 388,
+          "Snow_2020/21": 321
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -111.583254,
+            40.60134
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Ski Area": "Schweitzer Ski Area ",
+          "Snow_2012/13": 252,
+          "Snow_2013/14": 191,
+          "Snow_2014/15": 113,
+          "Snow_2015/16": 233,
+          "Snow_2016/17": 294,
+          "Snow_2017/18": 382,
+          "Snow_2018/19": 231,
+          "Snow_2019/20": 204,
+          "Snow_2020/21": 226
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -116.623182,
+            48.368031
+          ]
+        }
+      }
+    ]
+  }

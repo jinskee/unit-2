@@ -1,5 +1,5 @@
 var map = L.map('map',{
-    center: [51.505, -0.09],
+    center: [39.7, -104],
     zoom: 13
 });
 
@@ -137,7 +137,7 @@ var geojsonMarkerOptions = {
     fillOpacity: 0.8
 };
 
-L.geoJSON(someGeojsonFeature, {
+L.geoJSON(geojsonFeature, {
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
     }
