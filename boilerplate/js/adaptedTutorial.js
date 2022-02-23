@@ -50,7 +50,7 @@ function getData(map){
             };
             //create a Leaflet GeoJSON layer and add it to the map
             L.geoJson(json, {
-                onEachFeature: onEachFeature,
+                onEachFeature: onEachFeature, //onEachFeature 
                 pointToLayer: function (feature, latlng) {
                     return L.circleMarker(latlng, geojsonMarkerOptions);
                 }

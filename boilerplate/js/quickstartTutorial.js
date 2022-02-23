@@ -1,14 +1,11 @@
 var map = L.map('map').setView([51.505, -0.09], 13);//represents a map object using the div id of the Dom and sets the view of the map using latlng and zoom 
 
-/*var Stadia_Outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-}).addTo(map)*/
+//Tilelayer, this step has us adding a tileLayer or slippy map to the leaflet API 
 var tileLayer /*Stadia_AlidadeSmooth*/ = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', { //add a tile layer
 	maxZoom: 20,
 	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 });
-tileLayer.addTo(map) //Add the tile layer to map 
+tileLayer.addTo(map) //Add the tile layer to map, addTo() is an inherited method of tilelayer, adds given layer to map
 
 //L.Marker used for adding clickable icon on map
 var marker = L.marker([51.5, -0.09]).addTo(map);
@@ -39,15 +36,17 @@ var popup = L.popup()
     .setContent("I am a standalone popup.")
     .openOn(map);
 
-//function 
+//function for map click event that allows user interaction
 function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
 }
     
 map.on('click', onMapClick);
 
+//Setting a varible popup to an Empty L.popup 
 var popup = L.popup();
 
+//function which uses var popup to express a popup interaction with user at any lat lng
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
