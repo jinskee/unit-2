@@ -10,8 +10,10 @@ var tileLayer /*Stadia_AlidadeSmooth*/ = L.tileLayer('https://tiles.stadiamaps.c
 });
 tileLayer.addTo(map) //Add the tile layer to map 
 
+//L.Marker used for adding clickable icon on map
 var marker = L.marker([51.5, -0.09]).addTo(map);
 
+//L.circle used for adding a circle to the map at specified lat lng with other properties 
 var circle = L.circle([51.508, -0.11], {
     color: 'red',
     fillColor: '#f03',
@@ -19,21 +21,25 @@ var circle = L.circle([51.508, -0.11], {
     radius: 500
 }).addTo(map);
 
+//var polygon L.polygon used for adding a polygon with nodes at specefied lat lng
 var polygon = L.polygon([
     [51.509, -0.08],
     [51.503, -0.06],
     [51.51, -0.047]
 ]).addTo(map);
 
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+//open a popup on the marker, circle and polygon  using .bindPopup
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup(); 
 circle.bindPopup("I am a circle.");
 polygon.bindPopup("I am a polygon.");
 
+//Open a mopup on map at the specified lat lng 
 var popup = L.popup()
     .setLatLng([51.513, -0.09])
     .setContent("I am a standalone popup.")
     .openOn(map);
 
+//function 
 function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
 }
@@ -49,4 +55,5 @@ function onMapClick(e) {
         .openOn(map);
 }
 
+//map.on, call onMapClick function 
 map.on('click', onMapClick);

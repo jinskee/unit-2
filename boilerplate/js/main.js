@@ -6,7 +6,7 @@ function createMap(){
     map = L.map('map', {
         center: [20, 0],
         zoom: 2
-    });
+    }).setView([20,-104], 4);
 
 //Add OSM base tilelayer
     var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
@@ -16,7 +16,7 @@ function createMap(){
 
     //call the getData function
     
-    getData(map);
+    getData();
 };
 
 function onEachFeature(feature, layer) {
@@ -33,16 +33,28 @@ function onEachFeature(feature, layer) {
 };
 
 //function to retrieve the data and place it on the map
-function getData(map){
+function getData(){
     //load the data
     fetch("data/SnowFall.geojson")
         .then(function(response){
             return response.json();
         })
         .then(function(json){
+            //create marker options
+            var geojsonMarkerOptions = {
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            };
             //create a Leaflet GeoJSON layer and add it to the map
             L.geoJson(json, {
-                onEachFeature: onEachFeature
+                onEachFeature: onEachFeature,
+                pointToLayer: function (feature, latlng){
+                    return L.circleMarker(latlng, geojsonMarkerOptions);
+                }
             }).addTo(map);
         })  
 };

@@ -8,7 +8,7 @@ var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alida
 	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map)
 
-//An Example of a a simple GeoJSON feature:
+//A GeoJSON feature:
 var geojsonFeature = {
     "type": "Feature",
     "properties": {
@@ -24,26 +24,11 @@ var geojsonFeature = {
     
 
 
-//GeoJSON objects are added to the map through a GeoJSON layer. 
-//To create it and add it to the map we can use the following code:
+//In order to add GeoJSON objects to the map use a GeoJSON layer with dot notation addToMap. 
+
 L.geoJSON(geojsonFeature).addTo(map);
 
-//Messing around adding a geojson feature
-/*var bridgerFeature = {
-    "type": "Feature",
-    "properties": {
-        "name": "Bridger Bowl",
-        "amenity": "Ski Area",
-        "popupContent": "Ski the Cold Smoke"
-    },
-    "geometry": {
-        "type": "point",
-        "coordinates": [-110.898194, 45.817678]
-    }
-};
 
-//Add feature to map
-L.geoJSON(bridgerFeature).addTo(map);*/
 
 //GeoJSON objects may also be passed as an array of valid GeoJSON objects.
 var myLines = [{
@@ -54,14 +39,12 @@ var myLines = [{
     "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
 }];
 
-//Alternatively, we could create an empty GeoJSon layer and assign it to a variable so that we can add
-//more features to it later
+//Here we declare an empty GeoJSon layer and assign it to a variable in order to add features later
 var myLayer = L.geoJSON().addTo(map);
 myLayer.addData(geojsonFeature);
 
-//The style option can be used to style features two different
-//ways. First we can pass a simple object that styles all paths (polylines 
-//and polygons) the same way:
+
+//Here we style features using the style option by passing an object to style the polylines and polygons
 var myLines = [{
     "type": "LineString",
     "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
@@ -80,10 +63,8 @@ L.geoJSON(myLines, {
     style: myStyle
 }).addTo(map);
 
-//Alternatively, we can pass a funciton that styles individual features based on their properties.
-//In the example below we check the "party" property and style our 
-//polygons accordingly
 
+//Here we assign the states variable and pass a function that styles the individual features based on the features properties
 var states = [{
     "type": "Feature",
     "properties": {"party": "Republican"},
@@ -121,12 +102,8 @@ L.geoJSON(states, {
     }
 }).addTo(map);
 
-//Points are Handled differently than polylines and polygons. 
-//By default simple markers are drawn for GeoJson points.
-//We can alter this by passing a pointToLayer funciton in a GeoJson options
-//object when creating the GeoJson layer.
-//This funciton is passed a latlng and should return an instance of ILayer in 
-//this case likely a marker or circlemarker
+
+//This funciton is passed a latlng and should return an instance of Layer and will return a circle point marker
 
 var geojsonMarkerOptions = {
     radius: 8,
@@ -151,6 +128,7 @@ function onEachFeature(feature, layer) {
     }
 }
 
+//assigning a variable using onEachFeature that will allow the point to have a popup
 var geojsonFeature = {
     "type": "Feature",
     "properties": {
