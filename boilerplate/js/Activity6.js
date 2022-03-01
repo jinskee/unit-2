@@ -213,7 +213,7 @@ function onEachFeature(feature, layer) {
 //function to retrieve the data and place it on the map
 function getData(map){
     //load the data
-    fetch("data/SnowFall.geojson")
+    fetch("data/MegaCities.geojson")
         .then(function(response){
             return response.json();
         })
