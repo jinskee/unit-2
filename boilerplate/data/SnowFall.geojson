@@ -13,7 +13,8 @@
           "Snow_2018": 271,
           "Snow_2019": 177,
           "Snow_2020": 186,
-          "Snow_2021": 192
+          "Snow_2021": 192,
+          "img": "img/bridgerBowl.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -57,7 +58,8 @@
           "Snow_2018": 223,
           "Snow_2019": 349,
           "Snow_2020": 214,
-          "Snow_2021": 265
+          "Snow_2021": 265,
+          "img": "img/mtBachelor.jpg"
         },
         "geometry": {
           "type": "Point",

@@ -1,6 +1,6 @@
 //GOAL: Allow the user to sequence through the attributes and resymbolize the map 
 //   according to each attribute
-//STEPS:
+//STEPS: 
 //Step 1. Create UI affordances for sequencing
 //Step 2. Listen for user input via affordances
 //Step 3. Respond to user input by changing the selected attribute
@@ -8,7 +8,8 @@
 
 //declare map variable in global scope
 var map;
-var minValue;
+var dataStats = {};
+
 //function to instantiate the leaflet map
 function createMap(){
     map = L.map('map', {
@@ -27,7 +28,30 @@ function createMap(){
     getData(map);
 };
 
-function calculateMinValue(data){
+function calcStats(data) {
+    //create empty array to store all data values
+    var allValues = [];
+    //loop through each city
+    for (var skiArea of data.features) {
+        //loop through each year
+        for (var year = 2013; year <= 2021; year += 1) {
+            //get snowfall for current year
+            var value = skiArea.properties["Snow_" + String(year)];
+            //add value to array
+            allValues.push(value);
+        }
+    }
+    //get min, max, mean stats for our array
+    dataStats.min = Math.min(...allValues);
+    dataStats.max = Math.max(...allValues);
+    //calculate meanValue
+    var sum = allValues.reduce(function (a, b) {
+        return a + b;
+    });
+    dataStats.mean = sum / allValues.length;
+}
+
+/* Do NOT NEED FOR FINAL LAB function calculateMinValue(data){
     //create empty array to store all data values
     var allValues = [];
     //loop through each city
@@ -37,6 +61,8 @@ function calculateMinValue(data){
             //get population for current year
             var value = skiArea.properties["Snow_"+ String(year)];
             //add value to array 
+            //add conditional if zero values
+            //if (value && value > 0){}
             allValues.push(value);
         }
     }
@@ -44,16 +70,35 @@ function calculateMinValue(data){
     var minValue = Math.min(...allValues)
 
     return minValue;
-}
+}*/
 
 //calculate the radius of each proportional symbol 
 function calcPropRadius(attValue) {
     //constant factor adjusts symbol sizes evenly 
-    var minRadius = 5;
+    //Use conditional if else statement if value 0, eg if attValue == 0 return 0 else return all else
+    var minRadius = 5; //Or 6?
     //Flannery Apperance Compensation formula
-    var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
+    var radius = 1.0083 * Math.pow(attValue/dataStats.min,0.5715) * minRadius;
 
     return radius;
+};
+
+function PopupContent(properties, attribute){
+    //add the city popup content string
+    this.properties = properties;
+    this.attribute = attribute;
+    this.year = attribute.split("_")[1];
+    this.inches = this.properties[attribute];
+    
+    //var popupImage = "<img src = '"+ properties.img +"'>"
+    this.formatted = "<p><img src = '" + properties.img + "'" + " class=popupImage " + "'><b>Ski Area:</b> " + this.properties.skiArea + "</p><p><b>Snowfall in " + this.year + ": </b>" + this.inches + " inches</p>";
+
+    //add formatted attribute to panel content string 
+    
+    //popupContent += "<p><b>Snowfall in " + year + ":</b> " + properties[attribute] + " inches</p>";
+    
+
+    //return popupContent;
 };
 
 //Function to convert markers to circle markers
@@ -81,15 +126,11 @@ function pointToLayer(feature, latlng, attributes){
     var layer = L.circleMarker(latlng, options);
 
     //build popup content string starting with city
-    var popupContent = "<p><b>Ski Area:</b> " + feature.properties.skiArea + "</p>";
-    
-    //add formateed attribute to popup content string 
-    var year = attribute.split("_")[1]; 
-    
-    popupContent += "<p><b>Snowfall in " + "2020/"+year + ":</b> " + feature.properties[attribute] + " inches</p>";
+    var popupContent = new PopupContent(feature.properties, attribute);
 
+    
     //Bind the popup to the circle marker addin an offset to each circle marker as to not cover symbol
-    layer.bindPopup(popupContent, {
+    layer.bindPopup(popupContent.formatted, {
         offset: new L.Point(0,-options.radius) 
     });
 
@@ -106,6 +147,88 @@ function createPropSymbols(data, attributes){
         }
     }).addTo(map);
 };
+
+//NEEDED FOR FINAL LAB
+function getCircleValues(attribute) {
+    //start with min at highest possible and max at lowest possible number
+    var min = Infinity, 
+      max = -Infinity;
+
+    map.eachLayer(function (layer) {
+        //get the attribute value
+        if (layer.feature) {
+            var attributeValue = Number(layer.feature.properties[attribute]);
+
+            //test for min
+            if (attributeValue < min) {
+                min = attributeValue;
+            }
+
+            //Test for max
+            if (attributeValue > max) {
+                max = attributeValue;
+            }
+        
+        }
+    });
+
+    //set mean
+    var mean = (max + min) / 2;
+
+    //return values as an object
+    return {
+        max: max,
+        mean: mean,
+        min: min,
+    };
+
+};
+
+function updateLegend(attribute) {
+    //create content for legend 
+    var year = attribute.split("_")[1];
+    //replace legend content
+    document.querySelector("span.year").innerHTML = year;
+    
+    //get the max, mean and min values as an object
+    var circleValues = getCircleValues(attribute);
+
+    for (var key in circleValues) {
+        //get the radius
+        var radius = calcPropRadius(circleValues[key]);
+
+        document.querySelector("#" + key).setAttribute("cy", 59 - radius);
+        document.querySelector("#" + key).setAttribute("r", radius)
+
+        document.querySelector("#" + key + "-text").textContent = Math.round(circleValues[key] * 100) / 100 + " inches";
+    }
+};
+
+
+function updatePropSymbols(attribute){
+    map.eachLayer(function(layer){
+        if (layer.feature && layer.feature.properties[attribute]){
+            //access feature properties
+            var props = layer.feature.properties;
+
+            //update each feature's radius based on new attribute values
+            var radius = calcPropRadius(props[attribute]);
+            layer.setRadius(radius);
+
+            //add ski area  to popup content string
+            var popupContent =  new PopupContent(props, attribute);
+
+            
+
+            //update popup content            
+            popup = layer.getPopup();            
+            popup.setContent(popupContent.formatted).update();
+        };
+    });
+
+    updateLegend(attribute);
+};
+
 
 //Create an array of the sequential attributes
 function processData(data){
@@ -124,34 +247,49 @@ function processData(data){
     };
 
     //check the resulg
-    console.log(attributes);
+    //console.log(attributes);
 
     return attributes;
 };
 
 //Step 1: Create new sequence controls
 function createSequenceControls(attributes){
-    //create range input element (Slider)
-    var slider = "<input class='range-slider' type='range'></input>";
-    document.querySelector("#panel").insertAdjacentHTML('beforeend',slider);
-    console.log("IS THIS WORKING");
-    
+    var SequenceControl = L.Control.extend({
+        options: {
+            position: 'bottomleft'
+        },
+
+        onAdd: function () {
+            //create the control container div with a particular class name 
+            var container = L.DomUtil.create('div', 'sequence-control-container');
+
+            //create range input element (slider)
+            container.insertAdjacentHTML('beforeend', '<input class="range-slider" type="range">');
+
+            //add skip buttons
+            container.insertAdjacentHTML('beforeend', '<button class ="step" id="reverse" title="Reverse"><img src="img/reverse.png"></button>');
+
+            container.insertAdjacentHTML('beforeend', '<button class ="step" id="forward" title="Forward"><img src="img/forward.png"></button>');
+
+            L.DomEvent.disableClickPropagation(container);
+
+            return container;
+
+        }
+    });
+
+    map.addControl(new SequenceControl());
+    //add listeners after adding control
     //set slider attributes
     document.querySelector(".range-slider").max = 8;
     document.querySelector(".range-slider").min = 0;
     document.querySelector(".range-slider").value = 0;
     document.querySelector(".range-slider").step = 1;
 
+    var steps = document.querySelectorAll('.step');
+
     //add step buttons
-    document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="reverse">Reverse</button>');
-    document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="forward">Forward</button>');
-
-    //replace button content with images
-    document.querySelector('#reverse').insertAdjacentHTML('beforeend',"<img src='img/reverse.png'>")
-    document.querySelector('#forward').insertAdjacentHTML('beforeend',"<img src='img/forward.png'>")
-
-    //Example 3.6 click listener for buttons
-    document.querySelectorAll('.step').forEach(function(step){
+    steps.forEach(function(step){
         step.addEventListener("click", function(){
             var index = document.querySelector('.range-slider').value;
             console.log(index);
@@ -168,7 +306,7 @@ function createSequenceControls(attributes){
 
             //Step 8: update slider
             document.querySelector('.range-slider').value = index;
-
+            //pass new attribute to update symbols
             updatePropSymbols(attributes[index]);
         })
     })
@@ -181,29 +319,56 @@ function createSequenceControls(attributes){
     });
 };
 
-function updatePropSymbols(attribute){
-    map.eachLayer(function(layer){
-        if (layer.feature && layer.feature.properties[attribute]){
-            //access feature properties
-            var props = layer.feature.properties;
+function createLegend(attributes) {
+    var LegendControl = L.Control.extend({
+        options: {
+            position: "bottomright",
+        },
 
-            //update each feature's radius based on new attribute values
-            var radius = calcPropRadius(props[attribute]);
-            layer.setRadius(radius);
+        onAdd: function () {
+            //create the control container with a particular class name 
+            var container = L.DomUtil.create("div", "legend-control-container");
 
-            //add city to popup content string
-            var popupContent = "<p><b>Ski Area: </b> " + props.skiArea + "</p>";
+            container.innerHTML = '<p class="temporalLegend">Snowfall in <span class="year">2013</span></p>';
 
-            //add formatted attribute to panel content string
-            var year = attribute.split("_")[1];
-            popupContent += "<p><b>Snowfall in " + year + ":</b> " + props[attribute] + " inches</p>";
+            //Start attribute legend svg string
+            var svg = '<svg id="attribute-legend" width="160px" height="60px">';
 
-            //update popup content            
-            popup = layer.getPopup();            
-            popup.setContent(popupContent).update();
-        };
+            //array of circle names to base loop on 
+            var circles = ["max", "mean", "min"];
+
+            //Loop to add each circle and text to svg string
+            for (var i = 0; i < circles.length; i++) {
+                //calculate r and cy
+                var radius = calcPropRadius(dataStats[circles[i]]);
+                console.log(radius);
+                var cy = 59 - radius;
+                console.log(cy);
+
+                //circle string
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '" cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="30"/>';
+
+                //evenly space out labels
+                var textY = i * 20 + 20;
+
+                //text string 
+                svg += '<text id="' + circles[i] + '-text" x="65" y="' + textY + '">' + Math.round(dataStats[circles[i]] *100) / 100 + " inches" + "</text>";
+            }
+
+            //close svg string
+            svg += "</svg>";
+
+            //add attribute legend to container
+            container.insertAdjacentHTML('beforeend',svg);
+
+            return container;
+        },
     });
-};
+
+    map.addControl(new LegendControl());
+}
+
+
 /* From Activity 5 onEachFeature
 function onEachFeature(feature, layer) {
     //no property named popupContent; instead, create html string with all properties
@@ -227,12 +392,12 @@ function getData(map){
         })
         .then(function(json){
             var attributes = processData(json);
-            //calculate minimum data value
-            minValue = calculateMinValue(json);
+            calcStats(json)
             //create marker options
             //callfunction to create proportional symbols
             createPropSymbols(json, attributes);
             createSequenceControls(attributes);
+            createLegend(attributes);
         }) 
 };
 document.addEventListener('DOMContentLoaded', createMap)

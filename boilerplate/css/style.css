@@ -1,45 +1,77 @@
 /*Add CSS styles here*/
 /*body{
-     margin: 0;
+     font-family: 'Geneva', sans-serif;
+     background-color:darkslategray;
+     color: white;
 }*/
 .leaflet-popup-content p {
      margin: 0.2em 0;
 }
 
+.popupImage{
+     width: 100%;
+}
+
+
 #map {
-     height: 400px;
-     width: 70%;
+     height: 550px;
+     width: 100%;
      display: inline-block;
 }
+
+.sequence-control-container {
+     width: 350px;
+     height: 30px;
+     background-color: rgba(255,255,255,0.8);
+     padding: 10px;
+     line-height: 45px;
+     text-align: center;
+     border: solid gray 1px;
+}
  
- #panel {
+ /*#panel {
      width: 25%;
      padding: 20px;
      display: inline-block;
      vertical-align: top;
      text-align: center;
      line-height: 42px;
-}
+}*/
 
- .range-slider {
-     width: 55%;
+.range-slider {
+     width: 250px;
 }
  
- .step {
-      width: 20%;
+.step {
+     width: 40px;
 }
  
- .step img {
-      width: 100%;
+.step img {
+     width: 100%;
+     height:auto;
 }
  
  
- #forward {
+#forward {
      float: right;
 }
  
- #reverse {
+#reverse {
      float: left;
+}
+
+.legend-control-container {
+     width: 150px;
+     /*height: 200px;*/
+     font-weight: bold;
+     background-color: rgba(255,255,255,0.8);
+     padding: 10px;
+     text-align: center;
+     border: solid gray 1px;
+}
+
+.legend-contol-container p{
+     margin: 0;
 }
 
 /*#map {
