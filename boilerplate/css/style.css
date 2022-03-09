@@ -1,35 +1,67 @@
 /*Add CSS styles here*/
-/*body{
-     font-family: 'Geneva', sans-serif;
-     background-color:darkslategray;
-     color: white;
-}*/
+body{
+     font-family: 'Garamond', serif;
+     background-color:rgb(49, 49, 51);
+     color: rgb(242, 247, 213);
+}
+/*title div class style*/
+#title {
+     padding: 5px;
+}
+/*Popup style*/
 .leaflet-popup-content p {
      margin: 0.2em 0;
 }
-
+/*popup image parameters*/
 .popupImage{
      width: 100%;
 }
 
-
+/*Map div class style*/
 #map {
-     height: 550px;
+     height: 600px;
      width: 100%;
      display: inline-block;
+     /*vertical-align: top;*/
+     
 }
 
+/*text id div class style*/
+#textid {
+     width: 95%; 
+     height:550px;
+
+}
+/*sequence box style*/
 .sequence-control-container {
-     width: 350px;
-     height: 30px;
-     background-color: rgba(255,255,255,0.8);
+     width: 300px;
+     height: 70px;
+     background-color: rgba(243, 187, 187, 0.8);
      padding: 10px;
      line-height: 45px;
      text-align: center;
-     border: solid gray 1px;
+     border: solid rgb(180, 19, 19) 1px;
+}
+
+/*style range slider style*/
+.range-slider {
+     width: 175px;
+     fill:aqua;
+     height: 5px;
+     background: white;
+}
+
+.step {
+     width: 45px;
+}
+
+.step img {
+     width: 100%;
+     height: auto;
 }
  
- /*#panel {
+ /*Panel box style from chapter 5 sequences box
+ #panel {
      width: 25%;
      padding: 20px;
      display: inline-block;
@@ -37,21 +69,7 @@
      text-align: center;
      line-height: 42px;
 }*/
-
-.range-slider {
-     width: 250px;
-}
- 
-.step {
-     width: 40px;
-}
- 
-.step img {
-     width: 100%;
-     height:auto;
-}
- 
- 
+  
 #forward {
      float: right;
 }
@@ -59,35 +77,22 @@
 #reverse {
      float: left;
 }
-
+/*legend style*/
 .legend-control-container {
-     width: 150px;
-     /*height: 200px;*/
+     width: 160px;
+     height: 110px;
      font-weight: bold;
-     background-color: rgba(255,255,255,0.8);
+     color:black;
+     background-color: rgba(243, 187, 187, 0.8);
      padding: 10px;
      text-align: center;
-     border: solid gray 1px;
+     border: solid rgb(180, 19, 19) 1px;
+     font-family: 'Arial Narrow', sans-serif;
+     font-size: 14px;
 }
 
 .legend-contol-container p{
-     margin: 0;
+     margin: 1;
 }
 
-/*#map {
-     height: 100vw;
-     width: 100vw;
-}
-#panel {    
-     width: 16%;    
-     padding: 20px;
-     display: inline-block;
-     vertical-align: top;
-     text-align: center;
-     line-height: 42px;
-}
-
-.leaflet-popup-content p {
-     margin: 0.2em 0;
-}*/
 

@@ -6,6 +6,7 @@
             <title></title>
 
         <!--put your external stylesheet links here-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="lib/leaflet.css">
         <link rel="stylesheet" href="css/style.css">
         <!--[if IE<9]>
@@ -20,24 +21,52 @@
     <body>
         <!--put your initial page content here-->
         <div class="row">
-            
+            <!--title-->
             <div class="col-md-12">
                 <div id="title">
-                    <center><h2>Historic Annual Snowfall at 15 Ski Areas</h2></center>
-                    <center><h2>Joey Inskeep</h2></center>
+                    <center><h2>Searching for Snow</h2></center>
+                    <center><h5>Joey Inskeep</h5></center>
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="map"></div>
+            </div>
+        <!--supplementary text to inform narrative-->
+            <div class="col-md-4">
+            
+        <!--text information-->
+            
+                <div id="textid">
+                    <h4>Historic Annual Snowfall</h4>
+                    <p>This map looks at 15 different ski areas in North America, and examines the annual snowfall from 2013-2021 at each ski area.</p>
+                    <p>Use the sequence bar to check snowfall for different years and click on the symbols to retrieve the annual snowfall and to see a picture of the ski area.</p>
+                    <p>Explore the map, find out which of these 15 ski areas has received the highest and lowest snowfall and which ski areas
+                        consistently receive the most snow. Once you've had some time to thouroughly investigate the map, pick your destination 
+                        and plan a trip to one of these ski areas today!
+                    </p>
+                    <h4>The Data</h4>
+                    <p>The historic annual snowfall data comes from <a href="https://www.onthesnow.com/"> on the snow</a>.</p>
+                    <p><em>The images of the ski resorts on the pop-ups come from the ski areas websites:</em></p>
+                    <p><em><a href="https://www.newenglandskihistory.com/Vermont/madriverglen.php">Mad River Glen</a>, <a href= "https://www.bridgerbowl.com"> Bridger Bowl</a>, 
+                    <a href= "https://www.mtbaker.us/"> Mt. Baker</a>, <a href= "https://www.mtbachelor.com/"> Mt. Bachelor</a>, <a href= "https://www.whistlerblackcomb.com/"> Whistler</a>,
+                    <a href= "https://skiwhitefish.com/"> Whitefish</a>, <a href= "https://losttrail.com/"> Lost Trail</a>, <a href= "https://brightonresort.com/"> Brighton</a>,
+                    <a href= "https://www.schweitzer.com/"> Schweitzer</a>, <a href= "https://www.skitaos.com/mountain/mountain-and-services"> Taos Ski Valley</a>, <a href= "https://brundage.com/"> Brundage Mountain</a>,
+                    <a href= "https://www.keweenaw.info/recreation/mount-bohemia/"> Mt. Bohemia</a>,<a href= "https://www.grandtarghee.com/"> Grand Targhee</a>, <a href= "https://www.arapahoebasin.com/"> Arapahoe Basin</a>,
+                    <a href= "https://www.mammothmountain.com/"> Mammoth</a></em></p>
+                    
+
                 </div>
             </div>
         </div>
-            <div class="row">
-            <div class="col-md-8">
-                <div id="map"></div>
-                
-            </div>
         <!--you can also use this space for internal scripts;
         place these within <script> tags-->
 
         <!--put your external script links here-->
         <script type="text/javascript" src="lib/leaflet-src.js"></script>
-        <script type="text/javascript" src="js/Activity6_OwnData.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>

@@ -36,7 +36,8 @@
           "Snow_2018": 728,
           "Snow_2019": 451,
           "Snow_2020": 332,
-          "Snow_2021": 790
+          "Snow_2021": 790,
+          "img": "img/mtBaker.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -81,7 +82,8 @@
           "Snow_2018": 366,
           "Snow_2019": 206,
           "Snow_2020": 206,
-          "Snow_2021": 159
+          "Snow_2021": 159,
+          "img": "img/whiteFish.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -103,7 +105,8 @@
           "Snow_2018": 69,
           "Snow_2019": 148,
           "Snow_2020": 77,
-          "Snow_2021": 200
+          "Snow_2021": 200,
+          "img": "img/mtBoho.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -125,7 +128,8 @@
           "Snow_2018": 382,
           "Snow_2019": 436,
           "Snow_2020": 368,
-          "Snow_2021": 416
+          "Snow_2021": 416,
+          "img": "img/grandTarghee.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -147,7 +151,8 @@
           "Snow_2018": 124,
           "Snow_2019": 134,
           "Snow_2020": 74,
-          "Snow_2021": 52
+          "Snow_2021": 52,
+          "img": "img/madRiver.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -169,7 +174,8 @@
           "Snow_2018": 78,
           "Snow_2019": 219,
           "Snow_2020": 166,
-          "Snow_2021": 165
+          "Snow_2021": 165,
+          "img": "img/taos.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -191,7 +197,8 @@
           "Snow_2018": 209,
           "Snow_2019": 308,
           "Snow_2020": 213,
-          "Snow_2021": 202
+          "Snow_2021": 202,
+          "img": "img/brundage.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -213,7 +220,8 @@
           "Snow_2018": 277,
           "Snow_2019": 495,
           "Snow_2020": 153,
-          "Snow_2021": 225
+          "Snow_2021": 225,
+          "img": "img/mammothMountain.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -235,7 +243,8 @@
           "Snow_2018": 259,
           "Snow_2019": 173,
           "Snow_2020": 152,
-          "Snow_2021": 180
+          "Snow_2021": 180,
+          "img": "img/lostTrail.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -257,7 +266,8 @@
           "Snow_2018": 247,
           "Snow_2019": 329,
           "Snow_2020": 173,
-          "Snow_2021": 236
+          "Snow_2021": 236,
+          "img": "img/arapahoeBasin.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -279,7 +289,9 @@
           "Snow_2018": 316,
           "Snow_2019": 374,
           "Snow_2020": 295,
-          "Snow_2021": 281
+          "Snow_2021": 281,
+          "img": "img/whistler.jpg"
+
         },
         "geometry": {
           "type": "Point",
@@ -301,7 +313,8 @@
           "Snow_2018": 329,
           "Snow_2019": 588,
           "Snow_2020": 388,
-          "Snow_2021": 321
+          "Snow_2021": 321,
+          "img": "img/brighton.jpg"
         },
         "geometry": {
           "type": "Point",
@@ -323,7 +336,8 @@
           "Snow_2018": 382,
           "Snow_2019": 231,
           "Snow_2020": 204,
-          "Snow_2021": 226
+          "Snow_2021": 226,
+          "img": "img/schweitzer.jpg"
         },
         "geometry": {
           "type": "Point",
